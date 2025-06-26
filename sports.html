@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPORTS</title>
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            padding-top: 80px; /* Prevent content from hiding under the navbar */
+            transition: background-image 0.5s ease; /* Smooth transition for background image change */
+        }
+
+        /* Navigation Bar Styles */
+        .nav {
+      position: fixed;
+      top: 0;
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+      height: 100px;
+      line-height: 100px;
+      background: linear-gradient(rgba(39, 39, 39, 0.6), transparent);
+      z-index: 100;
+    }
+
+    .nav-logo p {
+      color: white;
+      font-size: 25px;
+      font-weight: 600;
+    }
+
+    .nav-menu ul {
+      display: flex;
+    }
+
+    .nav-menu ul li {
+      list-style-type: none;
+    }
+
+    .nav-menu ul li .link {
+      text-decoration: none;
+      font-weight: 500;
+      color: #fff;
+      padding-bottom: 15px;
+      margin: 0 25px;
+    }
+
+    .link:hover,
+    .active {
+      border-bottom: 2px solid #fff;
+    }
+
+    .nav-button .btn {
+      width: 130px;
+      height: 40px;
+      font-weight: 500;
+      background: rgba(255, 255, 255, 0.4);
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .btn:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    #registerBtn {
+      margin-left: 15px;
+    }
+
+    .btn.white-btn {
+      background: rgba(255, 255, 255, 0.7);
+    }
+
+    .btn.white-btn:hover {
+      background: rgba(255, 255, 255, 0.5);
+    }
+
+    .nav-menu-btn {
+      display: none;
+    }
+
+        /* Container for Categories */
+        .container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            width: 90vw; /* Adjusted width */
+            height: 80vh;
+            overflow: hidden;
+            margin: 50px auto; /* Center the container */
+        }
+
+        /* Category Section */
+        .category {
+            position: relative;
+            width: 23%; /* Adjust width to fit 4 categories side by side */
+            height: 480px; /* Adjust height as needed */
+            margin: 10px;
+            overflow: hidden;
+            border-radius: 15px; /* Rounded corners */
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5); /* Add a shadow to make images pop */
+            transition: box-shadow 0.3s ease;
+        }
+
+        /* Default Image */
+        .image, .hover-image {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: opacity 0.5s ease;
+        }
+
+        /* Hover Image */
+        .hover-image {
+            opacity: 0;
+        }
+
+        /* Show Hover Image on Hover */
+        .category:hover .hover-image {
+            opacity: 1;
+        }
+
+        .category:hover .image {
+            opacity: 0;
+        }
+
+        /* General Styles */
+.category {
+  position: relative;
+  width: 23%; /* Adjust width to fit 4 categories side by side */
+  height: 480px; /* Adjust height as needed */
+  margin: 10px;
+  overflow: hidden;
+  border-radius: 15px; /* Rounded corners */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5); /* Add a shadow to make images pop */
+  transition: opacity 0.5s ease; /* Smooth transition for opacity changes */
+}
+
+/* Non-hovered categories */
+.category.dimmed {
+  opacity: 0.3; /* Adjust opacity for dimming effect */
+}
+
+
+        /* Content Styling */
+        .content {
+            position: absolute;
+            bottom: 20px; /* Align content to the bottom */
+            left: 50%;
+            transform: translateX(-50%); /* Center the content horizontally */
+            text-align: top;
+            color: #fff; /* Initial text color */
+            background: transparent; /* Semi-transparent background for readability */
+            padding: 10px 20px;
+            border-radius: 10px;
+            transition: background 0.3s ease;
+        }
+
+        .category:hover .content {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .name {
+            font-size: 1.4em;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: color 0.3s ease; /* Smooth color change on hover */
+            text-align: center;
+        }
+
+        /* Change text color on hover */
+        .category:hover .name {
+            color: #ffa500; /* Change text color when image is hovered */
+        }
+
+        /* Button styles inside content */
+        button {
+            margin-top: 10px;
+            padding: 8px 16px;
+            font-size: 1em;
+            background-color: #ff8c00;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ffa500;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+     <div class="wrapper">
+    <nav class="nav">
+      <div class="nav-logo">
+        <p>shoe-site ...</p>
+      </div>
+      <div class="nav-menu" id="navMenu">
+        <ul>
+          <li><a href="shoe-site.html" class="link">Home</a></li>
+          <li><a href="sports.html" class="link">Sports</a></li>
+          <li><a href="image-slider.html" class="link">Brands</a></li>
+          <li><a href="login-page.html" class="link">Account</a></li>
+        </ul>
+      </div>
+      <div class="nav-button">
+        <button class="btn white-btn" id="loginBtn" onclick="login()">Sale</button>
+        <button class="btn" id="registerBtn" onclick="register()">New Arrivals</button>
+      </div>
+      <div class="nav-menu-btn">
+        <i class="bx bx-menu" onclick="myMenuFunction()"></i>
+      </div>
+    </nav>
+
+    <div class="container">
+        <!-- Category 1 -->
+        <div class="category" data-bg="football">
+            <!-- Default Image -->
+            <div class="image" style="background-image: url('https://i.pinimg.com/originals/81/dd/84/81dd84ec59c8c28fba70bc022c77f02e.jpg');"></div>
+            <!-- Hover Image -->
+            <div class="hover-image" style="background-image: url('https://i.pinimg.com/originals/d1/1e/cb/d11ecb58bd2e81c8e0e40f54f4f8f208.jpg');"></div>
+            <div class="content">
+                <div class="name">FOOTBALL</div>
+            </div>
+        </div>
+
+        <!-- Category 2 -->
+        <div class="category" data-bg="basketball">
+            <!-- Default Image -->
+            <div class="image" style="background-image: url('https://m.media-amazon.com/images/I/71ia+jsROoL._AC_UF1000,1000_QL80_.jpg');"></div>
+            <!-- Hover Image -->
+            <div class="hover-image" style="background-image: url('https://static.nike.com/a/images/f_auto/dpr_3.0,cs_srgb/h_411,c_limit/5b1a9ccf-1ec8-4e62-958f-5f301b9e851f/what-are-the-best-nike-basketball-shoes.jpg');"></div>
+            <div class="content">
+                <div class="name">BASKETBALL</div>
+            </div>
+        </div>
+
+        <!-- Category 3 -->
+        <div class="category" data-bg="track">
+            <!-- Default Image -->
+            <div class="image" style="background-image: url('https://mir-s3-cdn-cf.behance.net/project_modules/disp/aa10bf44651593.56077f8f7b418.jpg');"></div>
+            <!-- Hover Image -->
+            <div class="hover-image" style="background-image: url('https://trackspikes.co/cdn/shop/files/66644_1800x.jpg?v=1708102062');"></div>
+            <div class="content">
+                <div class="name">TRACK</div>
+            </div>
+        </div>
+
+        <!-- Category 4 -->
+        <div class="category" data-bg="tennis">
+            <!-- Default Image -->
+            <div class="image" style="background-image: url('https://i.pinimg.com/736x/58/0b/50/580b50f07892c9511ddbe16fe9832084.jpg');"></div>
+            <!-- Hover Image -->
+            <div class="hover-image" style="background-image: url('https://www.racquetworld.com.au/cdn/shop/files/Lacoste_Medvedev_DanIIl_Footwear_4042_1.jpg?v=1735786400');"></div>
+            <div class="content">
+                <div class="name">TENNIS</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+      // URLs for the background images
+      const backgrounds = {
+          default: 'https://wallpapers.com/images/featured/pure-black-background-py9pa0f1mlsscm9s.jpg',
+          football: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQut_wFUzcxuNjgeEBqzs-f6DeCbopJkNa4eQ&s',
+          basketball: 'https://wallpapers.com/images/hd/4k-basketball-raptors-home-court-x0swemsiglydkeg6.jpg',
+          track: 'https://plus.unsplash.com/premium_photo-1661302835330-9d4e52fc9d87?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cnVubmluZyUyMHRyYWNrfGVufDB8fDB8fHww',
+          tennis: 'https://cdn.tuttosport.com/images/2021/01/28/155223288-5d4226bf-3731-4579-8779-3c7fafba56e4.jpg'
+      };
+  
+      // Function to change the background image
+      function changeBackground(category) {
+          document.body.style.backgroundImage = `url('${backgrounds[category]}')`;
+      }
+  
+      // Function to dim all categories except the hovered one
+      function dimCategories(exclude) {
+          document.querySelectorAll('.category').forEach(category => {
+              if (category !== exclude) {
+                  category.classList.add('dimmed');
+              } else {
+                  category.classList.remove('dimmed');
+              }
+          });
+      }
+  
+      // Set up event listeners for category containers
+      document.querySelectorAll('.category').forEach(category => {
+          category.addEventListener('mouseover', function() {
+              const categoryType = this.getAttribute('data-bg');
+              changeBackground(categoryType);
+              dimCategories(this);
+          });
+  
+          category.addEventListener('mouseout', function() {
+              changeBackground('default');
+              dimCategories(null); // Reset all categories to full opacity
+          });
+      });
+  
+      // Initial background image
+      changeBackground('default');
+  </script>
+  
+</body>
+</html>

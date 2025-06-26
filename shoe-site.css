@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    overflow-x: hidden;
+    background-color: black;
+}
+
+/* Navigation Bar */
+.nav {
+      position: fixed;
+      top: 0;
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+      height: 100px;
+      line-height: 100px;
+      background: linear-gradient(rgba(39, 39, 39, 0.6), transparent);
+      z-index: 100;
+    }
+
+    .nav-logo p {
+      color: white;
+      font-size: 25px;
+      font-weight: 600;
+    }
+
+    .nav-menu ul {
+      display: flex;
+    }
+
+    .nav-menu ul li {
+      list-style-type: none;
+    }
+
+    .nav-menu ul li .link {
+      text-decoration: none;
+      font-weight: 500;
+      color: #fff;
+      padding-bottom: 15px;
+      margin: 0 25px;
+    }
+
+    .link:hover,
+    .active {
+      border-bottom: 2px solid #fff;
+    }
+
+    .nav-button .btn {
+      width: 130px;
+      height: 40px;
+      font-weight: 500;
+      background: rgba(255, 255, 255, 0.4);
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .btn:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    #registerBtn {
+      margin-left: 15px;
+    }
+
+    .btn.white-btn {
+      background: rgba(255, 255, 255, 0.7);
+    }
+
+    .btn.white-btn:hover {
+      background: rgba(255, 255, 255, 0.5);
+    }
+
+    .nav-menu-btn {
+      display: none;
+    }
+
+
+/* Hero Sections */
+.hero {
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.main-content {
+    color: white;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.main-content h1 {
+    font-size: clamp(2rem, 1rem + 5vw, 4rem);
+}
+
+.main-content h2 {
+    font-size: clamp(2rem, 1rem + 5vw, 3.5rem);
+}
+
+.main-content p {
+    margin-top: 10px;
+}
+
+.main-content .order {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    margin-top: 20px;
+}
+
+.order button {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(to bottom right, #ffffff 40%, #4a4646);
+    font-weight: 700;
+    font-size: clamp(0.8rem, 1rem + 1vw, 1.5rem);
+    cursor: pointer;
+    transition: background 0.1s linear, box-shadow 0.1s linear;
+}
+
+.order button:hover {
+    box-shadow: 0 0 30px #000000;
+    background: linear-gradient(to bottom right,  #000000,  #ffffff 80%);
+}
+
+/* Background Sections */
+.first-section { 
+    background-image: url('https://www.slamdunk.gr/2997133-product_large/nike-ja-2.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+
+.second-section {
+    background-image: url('https://preview.thenewsmarket.com/Previews/ADID/StillAssets/1920x1080/601516.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+
+.third-section {
+    background-image: url('https://sneakerpolitics.com/cdn/shop/articles/Air_Jordan_4_Retro_Black_Red_Sneaker_politics_BLOG-11.jpg?v=1641581592');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 1s ease-out;
+}
+
+.third-section .main-content {
+    opacity: 0;
+    transform: translateX(-100px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.third-section:hover .main-content {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Fourth Section */
+.fourth-section {
+    background-image: url('https://wallpapers.com/images/hd/travis-scott-jordan-1-7494-x-4999-wallpaper-vm9bpz4yc61inpbu.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 1.5s ease;
+}
+
+.fourth-section.active {
+    opacity: 1;
+}
+
+/* Fifth Section */
+.fifth-section {
+    background-image: url('https://wallpapers.com/images/hd/travis-scott-jordan-1-7494-x-4999-wallpaper-vm9bpz4yc61inpbu.jpg');
+    background-size: cover;
+    background-position: center;
+    position: fixed;
+    top: 0;
+    left: 100%; /* Start outside the viewport */
+    width: 100%;
+    height: 100vh;
+    transition: transform 1s ease-out;
+}
+
+.fifth-section.active {
+    transform: translateX(-100%);
+}
+
+/* Fade-in and Slide-in Animations for Text */
+.fade-slide {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease-out;
+}
+
+.fade-slide.visible {
+    opacity: 1;
+    transform: translateY(0);
+}

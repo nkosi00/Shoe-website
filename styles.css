@@ -1,0 +1,92 @@
+/* Resetting margins and paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and HTML styles */
+body, html {
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-around;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 15px;
+}
+
+nav ul li {
+    list-style: none;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+nav ul li a:hover {
+    color: #f39c12;
+}
+
+.hero {
+    height: 100vh;
+    background-image: url('your-background-image.jpg'); /* Replace with your image URL */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Top-right adjustable text */
+.top-right-text {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: white;
+    font-size: 36px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* Bottom-right adjustable button */
+.bottom-right-button {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    padding: 15px 30px;
+    background-color: #f39c12;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.bottom-right-button:hover {
+    background-color: #e67e22;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .top-right-text {
+        font-size: 24px;
+    }
+
+    .bottom-right-button {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+}
